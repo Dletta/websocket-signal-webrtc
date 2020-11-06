@@ -1,0 +1,15 @@
+{
+  "name": "signal-webrtc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "broadcastDiscovery.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node broadcastDiscovery.js"
+  },
+  "author": "jcd",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "^1.0.32"
+  }
+}
