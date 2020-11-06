@@ -12,11 +12,11 @@ Start Http Server and handle both webRTC and Http gets for index.hmtl */
 
 var server = http.createServer(handleRequest);
 
-const port = 3210;
+const port = process.env.port;
 server.listen(port, () => console.log(`Server running at http://localhost:${port}`));
 
 function handleRequest (request, response) {
-  console.log('request starting...');
+  console.log('Serving', request.url);
 
   var filePath = '.' + request.url;
   if (filePath == './')
@@ -69,7 +69,7 @@ function handleRequest (request, response) {
     })
 }
 
-wsServer = new WebSocketServer({
+var wsServer = new WebSocketServer({
     httpServer: server,
     // You should not use autoAcceptConnections for production
     // applications, as it defeats all standard cross-origin protection
@@ -88,6 +88,7 @@ function originIsAllowed(origin) {
 var connections = [];
 
 wsServer.on('request', function(request) {
+    console.log('received request from', request.origin);
     if (!originIsAllowed(request.origin)) {
       // Make sure we only accept requests from an allowed origin
       request.reject();
@@ -149,7 +150,7 @@ wsServer.on('request', function(request) {
     });
 
     connection.on('close', function(reasonCode, description) {
-        console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
+        console.log((new Date()) + ' Peer disconnected.');
         wsServer.connections.forEach((item, i) => {
           var object = {
             left: true,

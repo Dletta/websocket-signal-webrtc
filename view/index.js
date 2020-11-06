@@ -45,7 +45,9 @@ function generatePID () {
 
 /* Then we connect to the websocket signaling server using the 'echo-protocol' (string or binary)
 */
-var ws = new WebSocket('ws://localhost:3210','echo-protocol')
+var string = window.origin;
+var origin = string.slice(8);
+var ws = new WebSocket('wss://' + origin + '/','echo-protocol')
 
 /* When the connection opens we want to broadcast ourselves to the other peers */
 
@@ -131,7 +133,7 @@ function connect () {
   console.log('called connect');
   // loop over the queue of waiting peers and
   while (queue.length>0) {
-    // TODO: Check if peer already exists before re-doing 
+    // TODO: Check if peer already exists before re-doing
     // for each peer get pid
     var pid = queue.shift();
 

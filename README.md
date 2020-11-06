@@ -22,5 +22,5 @@ Once DataChannels are established, the webRTC connections are direct between pee
 
 I am currently testing this for production.
 Roadmap 2021:
-- [ ] Setup for Heroku Hosting (env vars etc)
+- [X] Setup for Glitch Hosting Example running on https://sugary-wholesale-mars.glitch.me/
 - [ ] Run in Production for https://us.meething.space as a data exchange system (e.g. chat)
