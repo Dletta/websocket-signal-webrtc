@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "author": "jcd",
-  "license": "MIT",
+  "license": "MPL2.0",
   "dependencies": {
     "websocket": "^1.0.32"
   }
