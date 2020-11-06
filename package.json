@@ -5,7 +5,7 @@
   "main": "broadcastDiscovery.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node broadcastDiscovery.js"
+    "start": "node index.js"
   },
   "author": "jcd",
   "license": "MIT",

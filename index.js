@@ -20,7 +20,7 @@ function handleRequest (request, response) {
 
   var filePath = '.' + request.url;
   if (filePath == './')
-      filePath = './index.html';
+      filePath = './view/index.html';
 
   var extname = path.extname(filePath);
   var contentType = 'text/html';
