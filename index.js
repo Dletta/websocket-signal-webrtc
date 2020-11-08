@@ -9,8 +9,11 @@ const crypto = require('crypto');
 
 /*
 Start Http Server and handle both webRTC and Http gets for index.hmtl */
+var config.options = {};
+config.options.key= process.env.SSLKEY ? fs.readFileSync(process.env.SSLKEY) : false,
+config.options.cert= process.env.SSLCERT ? fs.readFileSync(process.env.SSLCERT) :  false;
 
-var server = https.createServer(handleRequest);
+var server = https.createServer(config, handleRequest);
 
 const port = process.env.port;
 server.listen(port, () => console.log(`Server running at http://localhost:${port}`));
