@@ -3,14 +3,14 @@ Node Modules
 */
 const path = require('path');
 const fs = require('fs');
-const http = require('http'); //serve up the static file
+const http = require('https'); //serve up the static file
 var WebSocketServer = require('websocket').server;
 const crypto = require('crypto');
 
 /*
 Start Http Server and handle both webRTC and Http gets for index.hmtl */
 
-var server = http.createServer(handleRequest);
+var server = https.createServer(handleRequest);
 
 const port = process.env.port;
 server.listen(port, () => console.log(`Server running at http://localhost:${port}`));
