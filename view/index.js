@@ -47,7 +47,7 @@ function generatePID () {
 */
 var string = window.origin;
 var origin = string.slice(8);
-var ws = new WebSocket('wss://' + origin + '/','echo-protocol')
+var ws = new WebSocket('wss://' + origin + '/','json')
 
 /* When the connection opens we want to broadcast ourselves to the other peers */
 
