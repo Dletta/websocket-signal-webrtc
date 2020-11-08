@@ -3,16 +3,21 @@ Node Modules
 */
 const path = require('path');
 const fs = require('fs');
-const http = require('https'); //serve up the static file
+const https = require('https'); //serve up the static file
 var WebSocketServer = require('websocket').server;
 const crypto = require('crypto');
 
 /*
-Start Http Server and handle both webRTC and Http gets for index.hmtl */
+Start HTTPS Server and handle both webRTC and Http gets for index.hmtl */
+let config = {
+	options: {
+	  key: process.env.SSLKEY ? fs.readFileSync(process.env.SSLKEY) : false,
+	  cert: process.env.SSLCERT ? fs.readFileSync(process.env.SSLCERT) :  false
+	}
+};
+var server = https.createServer(config, handleRequest);
 
-var server = https.createServer(handleRequest);
-
-const port = process.env.port;
+const port = process.env.PORT;
 server.listen(port, () => console.log(`Server running at http://localhost:${port}`));
 
 function handleRequest (request, response) {

@@ -24,3 +24,9 @@ I am currently testing this for production.
 Roadmap 2021:
 - [X] Setup for Glitch Hosting Example running on https://sugary-wholesale-mars.glitch.me/
 - [ ] Run in Production for https://us.meething.space as a data exchange system (e.g. chat)
+
+### Usage
+Start as service using `pm2` using any configuration in `signal-server.config.js`
+```
+pm2 start signal-server.config.js
+```
